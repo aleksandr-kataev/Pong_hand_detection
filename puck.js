@@ -2,6 +2,7 @@ class Puck {
     constructor() {
         this.x = width / 2;
         this.y = height / 2;
+        this.radius = 20;
         this.xspeed = random(2) > 1 ? random(-3, -2) : random(2, 3);
         this.yspeed = random(2) > 1 ? random(-2, -1.5) : random(1.5, 2);
     }
@@ -12,7 +13,7 @@ class Puck {
     }
 
     edges() {
-        if (this.y < 0 || this.y > height) {
+        if (this.y < this.radius / 2 || this.y > height - this.radius / 2) {
             this.yspeed *= -1;
         }
 
@@ -36,6 +37,6 @@ class Puck {
 
     show() {
         fill(255);
-        ellipse(this.x, this.y, 24, 24);
+        ellipse(this.x, this.y, this.radius, this.radius);
     }
 }
