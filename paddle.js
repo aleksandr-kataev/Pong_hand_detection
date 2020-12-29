@@ -1,9 +1,12 @@
 class Paddle {
     constructor(left) {
-        this.x = left === true ? 10 : width - 10;
+        this.gap = 10;
+        this.x = left === true ? this.gap : width - this.gap;
         this.y = height / 2;
         this.w = 10;
-        this.h = 80;
+        this.h = 200;
+        this.vel = 10;
+        this.score = 0;
     }
 
     show() {
@@ -13,9 +16,14 @@ class Paddle {
     }
 
     update(y) {
+        //console.log(this.y);
         if (y > this.h / 2 && y < height - this.h / 2) {
             if (y < this.y - 10 || y > this.y + 10) {
-                this.y = y;
+                if (y < this.y) {
+                    this.y -= this.vel;
+                } else if (y > this.y) {
+                    this.y += this.vel;
+                }
             }
         }
     }

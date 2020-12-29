@@ -12,6 +12,7 @@ function setup() {
 
     video = createCapture(VIDEO);
     video.hide();
+    video.size(960, 640);
 
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses)
@@ -51,6 +52,8 @@ function draw() {
 
         paddlePlayer1.update(pose.leftWrist.y);
         paddlePlayer2.update(pose.rightWrist.y)
+        puck.checkPaddleLeft(paddlePlayer1);
+        puck.checkPaddleRight(paddlePlayer2);
 
         puck.edges();
         puck.show();
