@@ -18,15 +18,6 @@ class Puck {
             this.yspeed *= -1;
         }
 
-        if (this.x > width) {
-            //player1 scores
-            this.reset()
-        }
-
-        if (this.x < 0) {
-            //player2 scores
-            this.reset();
-        }
     }
 
     reset() {
@@ -49,10 +40,20 @@ class Puck {
         if (this.x - this.radius < p.x + p.w / 2 && this.y > p.y - p.h / 2 && this.y < p.y + p.h / 2) {
             this.xspeed *= -1;
         }
+
+        if (this.x > width) {
+            p.score += 1;
+            this.reset()
+        }
     }
     checkPaddleRight(p) {
         if (this.x + this.radius > p.x - p.w / 2 && this.y > p.y - p.h / 2 && this.y < p.y + p.h / 2) {
             this.xspeed *= -1;
+        }
+
+        if (this.x < 0) {
+            p.score += 1;
+            this.reset()
         }
     }
 }

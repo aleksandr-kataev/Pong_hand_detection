@@ -42,11 +42,26 @@ function drawHands() {
     ellipse(pose.rightWrist.x, pose.rightWrist.y, 10, 10)
 }
 
+function drawScore() {
+    textSize(25)
+    text(paddlePlayer1.score, width / 2 - 100, 30)
+    text(paddlePlayer2.score, width / 2 + 100, 30)
+}
+
+function modelLoading() {
+    console.log("cannot ")
+    fill(255);
+    textSize(40)
+    text("Model loading...", width / 2 - 150, height / 2)
+}
+
 function draw() {
     background(0);
 
     if (pose) {
+        drawScore();
         drawHands();
+
         paddlePlayer1.show();
         paddlePlayer2.show();
 
@@ -58,6 +73,8 @@ function draw() {
         puck.edges();
         puck.show();
         puck.update();
+    } else {
+        modelLoading();
     }
 
 }

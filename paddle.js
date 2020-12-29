@@ -17,7 +17,7 @@ class Paddle {
 
     update(y) {
         //console.log(this.y);
-        if (y > this.h / 2 && y < height - this.h / 2) {
+        if (y > this.h / 2 - this.gap && y < height - this.h / 2 + this.gap) {
             if (y < this.y - 10 || y > this.y + 10) {
                 if (y < this.y) {
                     this.y -= this.vel;
