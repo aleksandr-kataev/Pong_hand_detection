@@ -27,7 +27,6 @@ function setup() {
 function gotPoses(poses) {
     if (poses.length > 0) {
         pose = poses[0].pose;
-        skeleton = poses[0].skeleton;
     }
 }
 
@@ -49,7 +48,6 @@ function drawScore() {
 }
 
 function modelLoading() {
-    console.log("cannot ")
     fill(255);
     textSize(40)
     text("Model loading...", width / 2 - 150, height / 2)
@@ -60,7 +58,7 @@ function draw() {
 
     if (pose) {
         drawScore();
-        drawHands();
+        //drawHands();
 
         paddlePlayer1.show();
         paddlePlayer2.show();
